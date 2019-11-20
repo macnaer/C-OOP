@@ -2,8 +2,10 @@
 
 void Books::PrintBook()
 {
+	std::cout << "=========================PrintBook===============" << endl;
 	std::cout << "Title: " << this->title << "\nAuthor: " << this->author << "\nPublushed: " << this->published 
 		<< "\nPages: " << this->pages << "\nDescription: " << this->description <<std::endl;
+	std::cout << "=========================PrintBook===============" << endl;
 }
 
 Books::Books()

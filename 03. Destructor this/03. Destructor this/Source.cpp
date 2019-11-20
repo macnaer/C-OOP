@@ -11,8 +11,10 @@ int main() {
 	//azbuka.PrintBook();
 	//azbuka.~Books();
 
-	const int SIZE = 2;
-	Books myBooks[SIZE];
+	int size = 0;
+	cout << "Enter books count: " << endl;
+	cin >> size;
+	Books *myBooks = new Books[size];
 
 	string title;
 	string author;
@@ -20,7 +22,7 @@ int main() {
 	unsigned short pages;
 	string description;
 
-	for (int i = 0; i < SIZE; i++)
+	for (int i = 0; i < size; i++)
 	{
 		cout << "Title: " << endl;
 		cin >> title;
@@ -32,12 +34,12 @@ int main() {
 		cin >> pages;
 		cout << "Desc: " << endl;
 		cin >> description;
+		cout << "\n\n\n";
 		/*myBooks(title, author, published, pages, description);*/
 		myBooks[i] = Books(title, author, published, pages, description);
-		myBooks->PrintBook();
+		myBooks[i].PrintBook();
 	}
-	
-	
+
 
 	system("pause");
 	return 0;
