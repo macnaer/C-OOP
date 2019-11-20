@@ -11,8 +11,8 @@ int main() {
 	//azbuka.PrintBook();
 	//azbuka.~Books();
 
-	const int SIZE = 5;
-	Books * myBooks = new Books[SIZE];
+	const int SIZE = 2;
+	Books myBooks[SIZE];
 
 	string title;
 	string author;
@@ -32,8 +32,8 @@ int main() {
 		cin >> pages;
 		cout << "Desc: " << endl;
 		cin >> description;
-	/*	myBooks->(title, author, published, pages, description);*/
-		myBooks[i];
+		/*myBooks(title, author, published, pages, description);*/
+		myBooks[i] = Books(title, author, published, pages, description);
 		myBooks->PrintBook();
 	}
 	
