@@ -1,3 +1,5 @@
 ﻿  Source.cpp
-d:\lib\projects\семестр1\oop\4. copy contructor\4. copy contructor\source.cpp(24): warning C4566: character represented by universal-character-name '\u0421' cannot be represented in the current code page (1252)
-  4. Copy Contructor.vcxproj -> D:\Lib\Projects\Семестр1\OOP\4. Copy Contructor\Debug\4. Copy Contructor.exe
+c:\users\master\desktop\oop\4. copy contructor\4. copy contructor\source.cpp(27): warning C4566: character represented by universal-character-name '\u0421' cannot be represented in the current code page (1252)
+c:\users\master\desktop\oop\4. copy contructor\4. copy contructor\source.cpp(100): warning C4101: 'distance': unreferenced local variable
+c:\users\master\desktop\oop\4. copy contructor\4. copy contructor\source.cpp(102): warning C4101: 'rCcount': unreferenced local variable
+  4. Copy Contructor.vcxproj -> C:\Users\master\Desktop\OOP\4. Copy Contructor\Debug\4. Copy Contructor.exe

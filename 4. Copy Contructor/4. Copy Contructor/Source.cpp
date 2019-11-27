@@ -4,6 +4,7 @@
 using namespace std;
 
 class RailwayСarriage {
+private:
 	string type;
 	unsigned int passengers;
 
@@ -14,8 +15,10 @@ public:
 	void RailwayСarriageInfo() {
 		cout << "Type: " << this->type << "\nPassangers: " << this->passengers << endl;
 	}
+
+
 	void FillRailwayСarriage() {
-		cout << "Type: ";
+		cout << "Carriage Type: ";
 		cin >> this->type;
 		cout << "Passengers: ";
 		cin >> this->passengers;
@@ -23,6 +26,7 @@ public:
 	~RailwayСarriage() {
 		cout << "RailwayСarriage Default Destructor." << endl;
 	}
+
 };
 
 class Train {
@@ -34,9 +38,6 @@ private:
 	RailwayСarriage *carrige;
 
 public:
-	Train() {
-		cout << "Default constructor. Address " << this << endl;
-	}
 	Train(string route, string type, int distance, short RCcount) {
 		this->route = route;
 		this->type = type;
@@ -46,7 +47,10 @@ public:
 		for (int i = 0; i < this->RCcount; i++) {
 			carrige[i].FillRailwayСarriage();
 		}
-		cout << "Overload constructor. Address " << this << endl;
+		cout << "Overload Train constructor. " << endl;
+	}
+	Train() {
+		cout << "Default train constructor. " << endl;
 	}
 	void TrainInfo() {
 		cout << "Train route: " << this->route << "\nType: " << this->type << "\nDistans: " << this->distance
@@ -56,8 +60,11 @@ public:
 		}
 	}
 
-	// Copy Constructor
-	Train(const Train &other) {
+	void SetRoute(string route) {
+		this->route = route;
+	}
+
+	Train(Train &other) {
 		this->RCcount = other.RCcount;
 		this->route = other.route;
 		this->type = other.type;
@@ -66,33 +73,60 @@ public:
 		for (int i = 0; i < other.RCcount; i++) {
 			this->carrige[i] = other.carrige[i];
 		}
-		cout << "Copy constructor." << this <<endl;
 	}
 
 	~Train() {
-		cout << "Default destructor. Address " << this << endl;
 		delete[]carrige;
+		cout << "Train desctructor." << endl;
 	}
+
 };
 
-//Train NewTrain() {
-//	Train train("Rivne-Lviv", "plackart", 210, 12);
-//	train.TrainInfo();
-//	return  train;
-//}
 
-int main() {
+int main(){
 
-	/*NewTrain();*/
-	Train polissya("Rivne-Lviv", "Super Fast", 200, 3);
-	cout << "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"<<endl;
+	/*Train polissya("Kyiv - Rivne", "Night express", 350, 3);
 	polissya.TrainInfo();
-	cout << "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" << endl;
-	Train galuchina(polissya);  
-	cout << "----------------------------------" << endl;
-	galuchina.TrainInfo();
-	cout << "----------------------------------" << endl;
-	
+
+	Train bukovuna(polissya);
+	bukovuna.TrainInfo();
+	bukovuna.SetRoute("Lviv - Uzgorod");
+	bukovuna.TrainInfo();
+*/
+	Train *trains = new Train[3];
+
+	string route;
+	string type;
+	int distance;
+	short tCcount;
+	short rCcount;
+
+	cout << "Trains count: ";
+	cin >> tCcount;
+
+	trains[0] = Train("Test1", "Express", 200, 2);
+	trains[0].TrainInfo();
+	//trains[1] = Train("Test2", "Luxary", 100, 3);
+	//trains[1].TrainInfo();
+
+	//for (int i = 0; i < tCcount; i++) {
+	//	cout << "Route: ";
+	//	cin>>route;
+	//	cout << "Cars count: ";
+	//	cin >> rCcount;
+	//	cout << "Type: ";
+	//	cin >> type;
+	//	cout << "Distance: ";
+	//	cin >> distance;
+	//	trains[i] = Train(route, type, distance, rCcount);
+	//	trains[i].TrainInfo();
+	//}
+
+	/*trains[0].TrainInfo();*/
+	//trains[0].TrainInfo();
+	delete[] trains;
+ 	
+
 
 
 	system("pause");
