@@ -3,7 +3,27 @@
 
 using namespace std;
 
+class STO;
+class Car;
+
+class STO {
+	int changeOil;
+	string name;
+public:
+	STO(string name) {
+		this->name = name;
+		cout << "Overload  STO Constructor: " << this << endl;
+	}
+	STO() {
+		cout << "Default STO Constructor: " << this << endl;
+	}
+	friend void  ChangeOil(STO &sto, Car &car, int newPower);
+};
+
+
 class Car {
+	friend void EditCar(Car &car);
+	friend void  ChangeOil(STO &sto, Car &car, int newPower);
 	string vendor;
 	string model;
 	string engine;
@@ -28,22 +48,39 @@ public:
 		cout << "Vendor: " << this->vendor << "\nModel: " << this->model << "\nEngine: " << this->engine
 			<< "\nPower: " << this->power << "\nPrice: " << this->price << endl;
 	}
-
-	friend void EditCar(Car &car);
 };
 
+
+
 void EditCar(Car &car) {
-	car.engine = "Edited engine";
+	car.engine = "Turbo Diesel";
+	car.power += 35;
 	car.price = 100500;
 }
+
+void ChangeOil(STO &sto, Car &car, int newPower) {
+	cout << "New Power from  " << sto.name  << endl;
+	sto.changeOil = newPower;
+	car.power = sto.changeOil;
+}
+
 
 int main() {
 
 	Car audi("Audi", "A3", "Diesel", 100, 2000);
 	audi.ShowCar();
-	
-	EditCar(audi);
+	cout << "================================" << endl;
+	/*EditCar(audi);
+	audi.ShowCar();*/
+	cout << "**************************" << endl;
+	STO sto("Makarova");
+	ChangeOil(sto, audi, 120);
 	audi.ShowCar();
+	cout << "**************************" << endl;
+	STO sto2("Bila");
+	ChangeOil(sto2, audi, 3000);
+	audi.ShowCar();
+
 
 
 
