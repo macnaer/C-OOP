@@ -27,7 +27,9 @@ template <typename T>
 class Fuel {
 	T fuel;
 public:
-	Fuel(T fuel = 10) {};
+	Fuel(T fuel = 10) {
+		this->fuel;
+	};
 	T GetFuel(){
 		return this->fuel;
 	}
