@@ -62,13 +62,21 @@ private:
 int main() {
 
 	NodeList<int> list;
-	list.Push(11);
-	list.Push(111);
-	list.Push(11111);
-	cout << list[2] << endl;
+	int containersCount = 0;
+	cout << "How many number do you want to use? " << endl;
+	cin >> containersCount;
+	cout << "==========================================" << endl;
 
+	for (int i = 0; i < containersCount; i++) {
+		int choice = 0;
+		cout << "Enter " << i << " element: " << endl;
+		cin >> choice;
+		list.Push(choice);
+	}
 
-	cout << list.GetSize() << endl;
+	for (int i = 0; i < list.GetSize(); i++) {
+		cout << "Elem[" << i << "] = " << list[i] << endl;
+	}
 
 	system("pause");
 	return 0;
