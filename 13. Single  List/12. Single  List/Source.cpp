@@ -16,34 +16,47 @@ public:
 
 	void Push(T data) {
 		if (head == nullptr) {
-			head = new Node<T>(data);
+			head = new Container<T>(data);
 		}
 		else {
-			Node<T> *current = this->head;
+			Container<T> *current = this->head;
 			while (current->NextNode != nullptr)
 			{
 				current = current->NextNode;
 			}
-			current->NextNode = new Node<T>(data);
+			current->NextNode = new Container<T>(data);
 		}
 		size++;
 	}
 
+	T& operator[](const int index) {
+		int counter = 0;
+		Container<T> *current = this->head;
+
+		while (current != nullptr) {
+			if (counter == index) {
+				return current->data;
+			}
+			current = current->NextNode;
+			counter++;
+		}
+	}
+
 private:
 	template <typename T>
-	class Node {
+	class Container {
 	public:
-		Node *NextNode;
+		Container *NextNode;
 		T data;
 
-		Node(T data = T(), Node *NextNode=nullptr) {
+		Container(T data = T(), Container *NextNode=nullptr) {
 			this->data = data;
 			this->NextNode = NextNode;
 		}
 
 	};
 	int size;
-	Node<T> *head;
+	Container<T> *head;
 };
 
 int main() {
@@ -52,6 +65,7 @@ int main() {
 	list.Push(11);
 	list.Push(111);
 	list.Push(11111);
+	cout << list[2] << endl;
 
 
 	cout << list.GetSize() << endl;
