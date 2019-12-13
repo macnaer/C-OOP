@@ -10,6 +10,12 @@ public:
 		this->size = 0;
 		this->head = nullptr;
 	}
+
+	~NodeList() {
+		cout << "NodeList destructor => " << endl;
+		DeleteFirst();
+	}
+
 	int GetSize() {
 		return this->size;
 	}
@@ -39,6 +45,20 @@ public:
 			}
 			current = current->NextNode;
 			counter++;
+		}
+	}
+
+	void DeleteFirst() {
+		Container<T> *temp = head;
+		head = head->NextNode;
+		delete temp;
+		size--;
+	}
+
+	void ClearList() {
+		while (size)
+		{
+			DeleteFirst();
 		}
 	}
 
@@ -77,6 +97,14 @@ int main() {
 	for (int i = 0; i < list.GetSize(); i++) {
 		cout << "Elem[" << i << "] = " << list[i] << endl;
 	}
+
+	cout << "List size =====> " << list.GetSize() << endl;
+	list.DeleteFirst();
+	cout << "List size =====> " << list.GetSize() << endl;
+	cout << "Clear list: " << endl;
+	/*list.ClearList();
+	cout << "List size =====> " << list.GetSize() << endl;*/
+
 
 	system("pause");
 	return 0;
