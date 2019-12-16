@@ -1,0 +1,3 @@
+﻿  Source.cpp
+d:\lib\projects\семестр1\oop\14. single  list 2\12. single  list\source.cpp(90): warning C4715: 'NodeList<int>::operator[]': not all control paths return a value
+  12. Single  List.vcxproj -> D:\Lib\Projects\Семестр1\OOP\14. Single  List 2\Debug\12. Single  List.exe
