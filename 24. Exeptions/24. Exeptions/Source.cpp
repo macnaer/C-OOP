@@ -6,9 +6,13 @@ using namespace std;
 
 void Division(int a, int b) {
 	if (b == 0) {
-		throw exception("Division on 0");
+		/*throw exception("Division on 0");*/
+		throw "Zero division";
 	}
-	cout << "Result = " <<a / b << endl;;
+	else if (b == 1) {
+		throw "Bed example";
+	}
+	cout << "Result = " <<a / b << endl;
 
 }
 
@@ -38,6 +42,12 @@ int main() {
 	catch (const exception &error)
 	{
 		cout << error.what() << endl;
+	}
+	catch (const char *error) {
+		cout << error << endl;
+	}
+	catch (...) {
+		cout << "Internal server error" << endl;
 	}
 	
 	//---------------------Example 2-------------------------
